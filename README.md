@@ -1,5 +1,3 @@
-This solution is based on the following exercice
-
 # Exercise #3: Choose your own adventure
 
 
