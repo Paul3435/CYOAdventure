@@ -2,10 +2,8 @@ This solution is based on the following exercice
 
 # Exercise #3: Choose your own adventure
 
-[![exercise status: released](https://img.shields.io/badge/exercise%20status-released-green.svg?style=for-the-badge)](https://gophercises.com/exercises/cyoa) [![demo: ->](https://img.shields.io/badge/demo-%E2%86%92-blue.svg?style=for-the-badge)](https://gophercises.com/demos/cyoa/)
 
-
-## Exercise details
+## Details
 
 [Choose Your Own Adventure](https://en.wikipedia.org/wiki/Choose_Your_Own_Adventure) is (was?) a series of books intended for children where as you read you would occasionally be given options about how you want to proceed. For instance, you might read about a boy walking in a cave when he stumbles across a dark passage or a ladder leading to an upper level and the reader will be presented with two options like:
 
@@ -41,25 +39,16 @@ Stories will be provided via a JSON file with the following format:
 }
 ```
 
-*See [gopher.json](https://github.com/gophercises/cyoa/blob/master/gopher.json) for a real example of a JSON story. I find that seeing the real JSON file really helps answer any confusion or questions about the JSON format.*
+*See [stories.json](https://github.com/Paul3435/CYOAdventure/blob/main/stories.json) for a real example of a JSON story. I find that seeing the real JSON file really helps answer any confusion or questions about the JSON format.*
 
-You are welcome to design the code however you want. You can put everything in a single `main` package, or you can break the story into its own package and use that when creating your http handlers.
+Requirements:
 
-The only real requirements are:
-
-1. Use the `html/template` package to create your HTML pages. Part of the purpose of this exercise is to get practice using this package.
+1. Use the `html/template` package to create your HTML pages.
 2. Create an `http.Handler` to handle the web requests instead of a handler function.
-3. Use the `encoding/json` package to decode the JSON file. You are welcome to try out third party packages afterwards, but I recommend starting here.
+3. Use the `encoding/json` package to decode the JSON file.
 
 A few things worth noting:
 
 - Stories could be cyclical if a user chooses options that keep leading to the same place. This isn't likely to cause issues, but keep it in mind.
 - For simplicity, all stories will have a story arc named "intro" that is where the story starts. That is, every JSON file will have a key with the value `intro` and this is where your story should start.
 - Matt Holt's JSON-to-Go is a really handy tool when working with JSON in Go! Check it out - <https://mholt.github.io/json-to-go/>
-
-## Bonus
-
-As a bonus exercises you can also:
-
-1. Create a command-line version of our Choose Your Own Adventure application where stories are printed out to the terminal and options are picked via typing in numbers ("Press 1 to venture ...").
-2. Consider how you would alter your program in order to support stories starting form a story-defined arc. That is, what if all stories didn't start on an arc named `intro`? How would you redesign your program or restructure the JSON? This bonus exercises is meant to be as much of a thought exercise as an actual coding one.
